@@ -1,0 +1,117 @@
+.orders-page{
+    width:90%;
+    margin:30px auto;
+}
+
+.page-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.empty-order{
+    text-align:center;
+}
+
+.order-card{
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:8px;
+    margin-bottom:30px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.order-header{
+    background:#f5f5f5;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    padding:20px;
+}
+
+.header-item{
+    display:flex;
+    flex-direction:column;
+    margin:10px;
+    min-width:150px;
+}
+
+.header-title{
+    font-size:13px;
+    color:#777;
+    font-weight:600;
+    margin-bottom:5px;
+}
+
+.status{
+    color:green;
+    font-weight:bold;
+}
+
+.products{
+    padding:20px;
+}
+
+.product-card{
+    gap:20px;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+
+.product-card:last-child{
+    border-bottom:none;
+}
+
+.product-card img{
+    width:120px;
+    height:120px;
+    object-fit:cover;
+    border-radius:6px;
+}
+
+.product-details{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.product-details h3{
+    margin-bottom:10px;
+}
+
+.product-details p{
+    margin:4px 0;
+}
+
+.shipping-box{
+    background:#fafafa;
+    border-top:1px solid #eee;
+    padding:20px;
+}
+
+.shipping-box h3{
+    margin-bottom:10px;
+}
+
+.shipping-box p{
+    margin:5px 0;
+}
+
+@media(max-width:768px){
+
+.order-header{
+    flex-direction:column;
+}
+
+.product-card{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+
+.product-card img{
+    width:150px;
+    height:150px;
+}
+
+}

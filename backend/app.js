@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 const express = require('express');
 const bcrypt = require('bcrypt');
@@ -27,7 +28,7 @@ const {
 } = require("./controllers/adminUserController");
 
 
-mongoose.connect('mongodb://localhost:27017/user', {
+mongoose.connect(process.env.MONGO_URI, {
     
 }).then(() => {
     console.log('Connected to user database');

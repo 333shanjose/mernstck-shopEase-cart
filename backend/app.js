@@ -131,7 +131,7 @@ app.get("/product/:id", getProductById);
 
 //get searched products
 
-app.get("/products", getProductsBy);
+app.get("/products/search", getProductsBy);
 
 
 app.get('/admin/products',async(req,res)=>{

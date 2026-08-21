@@ -25,7 +25,7 @@ export const getProductsBykey = createAsyncThunk(
   "product/getProductsBykey",
   async (keyword = "") => {
     const { data } = await axios.get(
-      `${API}/products?keyword=${keyword}`
+      `${API}/products/search?keyword=${keyword}`
     );
 
     return data;

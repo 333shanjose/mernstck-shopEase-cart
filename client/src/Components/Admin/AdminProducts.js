@@ -4,10 +4,11 @@ import axios from "axios";
 
 function AdminProducts() {
   const [products, setProducts] = useState([]);
+  const API = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/admin/products")
+      .get(`${API}/admin/products`)
       .then((res) => {
         setProducts(res.data.products);
         console.log(res.data.products);
@@ -19,7 +20,7 @@ function AdminProducts() {
 
   const deleteProduct = async (id) => {
     try {
-      await fetch(`http://localhost:5000/admin/product/${id}`, {
+      await fetch(`${API}/admin/product/${id}`, {
         method: "DELETE",
       });
 
@@ -78,7 +79,7 @@ function AdminProducts() {
                     height: "60px",
                     objectFit: "cover",
                   }}
-                  src={`http://localhost:5000/uploads/${p.image}`}
+                  src={`${API}/uploads/${p.image}`}
                   alt={p.name}
                 />
               </td>

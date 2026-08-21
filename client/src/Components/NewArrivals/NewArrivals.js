@@ -7,6 +7,8 @@ import "./NewArrivals.css";
 function NewArrivals() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const API = process.env.REACT_APP_API_URL;
+
 
   const { products, loading, error } = useSelector(
     (state) => state.products
@@ -56,7 +58,7 @@ function NewArrivals() {
                 {/* Image */}
                 <div className="new-product-image">
                   <img
-                    src={`http://localhost:5000/uploads/${product.image}`}
+                    src={`${API}/uploads/${product.image}`}
                     alt={product.name}
                   />
 

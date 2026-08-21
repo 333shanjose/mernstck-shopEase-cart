@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const AddCategory = () => {
+  const API = process.env.REACT_APP_API_URL;
+
   const [name, setName] = useState("");
   const [image, setImage] = useState(null);
 
@@ -15,7 +17,7 @@ const AddCategory = () => {
     formData.append("image", image);
 
     try {
-      const res = await fetch("http://localhost:5000/admin/category", {
+      const res = await fetch(`${API}/admin/category`, {
         method: "POST",
         body: formData,
       });

@@ -7,6 +7,7 @@ import RoundLoading from "../Loading/RoundLoading";
 import "./Login.css";
 
 function Login() {
+  const API = process.env.REACT_APP_API_URL;
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [loading,setLoading]=useState(false)
@@ -16,7 +17,7 @@ function Login() {
     setLoading(true)
     e.preventDefault();
     try{
-    const res=await axios.post("http://localhost:5000/login",{
+    const res=await axios.post(`${API}/login`,{
       email:document.getElementById('email').value,
       password:document.getElementById('password').value,
 

@@ -6,7 +6,7 @@ import { useParams,useHistory } from "react-router-dom";
 function Editproducts() {
   const { id } = useParams();
   const history = useHistory()
-    console.log(id)
+    const API = process.env.REACT_APP_API_URL;
 
     const [name,setName]=useState("")
     const [price,setPrice]=useState("")
@@ -25,7 +25,7 @@ function Editproducts() {
       formData.append("category", category);
       formData.append("image", image);
     
-      await fetch(`http://localhost:5000/admin/product/${id}`, {
+      await fetch(`${API}/admin/product/${id}`, {
         method: "PUT",
         body: formData,
       });
@@ -36,7 +36,7 @@ function Editproducts() {
       const fetchData = async () => {
         try {
         
-          const { data } = await axios.get(`http://localhost:5000/admin/product/${id}`);
+          const { data } = await axios.get(`${API}/admin/product/${id}`);
           console.log(data)
           
           setName(data.name);

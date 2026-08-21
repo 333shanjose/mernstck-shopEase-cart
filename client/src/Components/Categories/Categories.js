@@ -5,6 +5,7 @@ import { getCategories } from '../../reduxSlice/CategorySlice'
 
 
 function Categories() {
+  const API = process.env.REACT_APP_API_URL;
 
     const dispatch=useDispatch()
     const categories=useSelector((state)=>{
@@ -21,7 +22,7 @@ function Categories() {
         <div className="category-grid">
           {categories.map((category) => (
             <div className="category-card" key={category._id}>
-              <img src={`http://localhost:5000/uploads/${category.image}`} alt={category.name} />
+              <img src={`${API}/uploads/${category.image}`} alt={category.name} />
               <div className="category-overlay">
                 <h3>{category.name}</h3>
               </div>

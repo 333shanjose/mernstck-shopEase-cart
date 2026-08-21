@@ -9,6 +9,7 @@ import { fetchAdminUsers } from "../../../reduxSlice/AdminUserSlice";
 
 const AdminDashboard = () => {
   const dispatch = useDispatch();
+  const API = process.env.REACT_APP_API_URL;
 
   const { products = [] } = useSelector((state) => state.products);
   const { orders = [] } = useSelector((state) => state.order);
@@ -341,7 +342,7 @@ const AdminDashboard = () => {
                         <img
                           src={
                             product.image
-                              ? `http://localhost:5000/uploads/${product.image}`
+                              ? `${API}/uploads/${product.image}`
                               : "/images/no-image.png"
                           }
                           alt={product.name}

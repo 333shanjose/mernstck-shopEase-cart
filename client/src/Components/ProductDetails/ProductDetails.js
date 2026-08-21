@@ -6,6 +6,8 @@ import "./ProductDetails.css";
 
 function ProductDetails() {
   const { id } = useParams();
+  const API = process.env.REACT_APP_API_URL;
+
   const dispatch = useDispatch();
    console.log(id)
   const { product, loading } = useSelector((state) => state.products);
@@ -26,7 +28,7 @@ function ProductDetails() {
     <div className="product-details">
       <div className="product-image">
         <img
-          src={`http://localhost:5000/uploads/${product.image}`}
+          src={`${API}/uploads/${product.image}`}
           alt={product.name}
         />
       </div>

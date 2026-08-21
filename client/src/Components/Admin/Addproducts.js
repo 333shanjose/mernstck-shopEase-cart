@@ -3,6 +3,7 @@ import React  from 'react'
 import axios from 'axios'
 
 function Addproducts() {
+  const API = process.env.REACT_APP_API_URL;
   const [name,setName]=useState("")
   const [price,setPrice]=useState("")
   const [description,setDescription]=useState("")
@@ -31,7 +32,7 @@ function Addproducts() {
     formData.append("image", fileInput.files[0]);
     
      try{
-       const res=await axios.post('http://localhost:5000/admin/add-products',formData
+       const res=await axios.post(`${API}/admin/add-products`,formData
         
        )
      }

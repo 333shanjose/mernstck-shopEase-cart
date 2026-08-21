@@ -3,16 +3,17 @@ import { Link } from "react-router-dom";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
+  const API = process.env.REACT_APP_API_URL;
 
   const fetchCategories = async () => {
-    const res = await fetch("http://localhost:5000/admin/categories");
+    const res = await fetch(`${API}/admin/categories`);
     const data = await res.json();
     setCategories(data);
   };
 
   const deleteCategory = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/admin/category/${id}`, {
+      const res = await fetch(`${API}/admin/category/${id}`, {
         method: "DELETE",
       });
 
@@ -46,7 +47,7 @@ const Categories = () => {
         <tbody>
           {categories.map((c) => (
             <tr key={c._id}>
-            <td><img style={{width:"60px"}}  src={`http://localhost:5000/uploads/${c.image}`}  alt={c.name} /></td>
+            <td><img style={{width:"60px"}}  src={`${API}/uploads/${c.image}`}  alt={c.name} /></td>
               <td>{c.name}</td>
               <td>
                 <Link to={`/admin/edit-categories/${c._id}`}><button style={{backgroundColor:"green"}}>Edit</button></Link>

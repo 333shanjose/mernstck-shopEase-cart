@@ -4,12 +4,13 @@ import { useHistory, useParams } from "react-router-dom";
 const EditCategory = () => {
   const { id } = useParams();
   const history = useHistory();
+  const API = process.env.REACT_APP_API_URL;
 
   const [name, setName] = useState("");
 
   useEffect(() => {
     const fetchCategory = async () => {
-      const res = await fetch(`http://localhost:5000/admin/category/${id}`);
+      const res = await fetch(`${API}/admin/category/${id}`);
       const data = await res.json();
       setName(data.name);
     };
@@ -19,7 +20,7 @@ const EditCategory = () => {
 const handleSubmit = async (e) => {
   e.preventDefault();
 
-  await fetch(`http://localhost:5000/admin/category/${id}`, {
+  await fetch(`${API}/admin/category/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

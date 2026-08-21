@@ -8,6 +8,7 @@ import "./Cart.css";
 const Cart = () => {
    const dispatch=useDispatch()
    const history=useHistory()
+   const API = process.env.REACT_APP_API_URL;
 
   const items = useSelector((state)=>{
          return state.cart.items
@@ -44,7 +45,7 @@ const Cart = () => {
           
           <td> 
             <img
-                src={`http://localhost:5000/uploads/${item.productId.image}`}
+                src={`${API}/uploads/${item.productId.image}`}
                 alt={item.productId.name}
                 width="120px"
               />

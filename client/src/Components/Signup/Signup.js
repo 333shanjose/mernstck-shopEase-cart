@@ -9,6 +9,8 @@ import SignUpLoading from "../Loading/SignUpLoading";
 
 export default function Signup() {
   const history = useHistory();
+  const API = process.env.REACT_APP_API_URL;
+
   let [name, setName] = useState("");
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
@@ -19,7 +21,7 @@ export default function Signup() {
       console.log('reacheed')
     setLoading(true)
     try{
-    const res=await  axios.post("http://localhost:5000/signup",{
+    const res=await  axios.post(`${API}/signup`,{
       name:document.getElementById('name').value,
       email:document.getElementById('email').value,
       password:document.getElementById('password').value,

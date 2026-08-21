@@ -5,6 +5,7 @@ import "./Orders.css";
 
 function Orders() {
   const dispatch = useDispatch();
+  const API = process.env.REACT_APP_API_URL;
 
   const { orders, loading, error } = useSelector(
     (state) => state.order
@@ -68,7 +69,7 @@ function Orders() {
                 <div className="product-card" key={item._id}>
 
                   <img
-                    src={`http://localhost:5000/uploads/${item.productId.image}`}
+                    src={`${API}/uploads/${item.productId.image}`}
                     alt={item.productId.name}
                   />
 

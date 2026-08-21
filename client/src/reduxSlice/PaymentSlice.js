@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+const API=process.env.REACT_APP_API_URL
 // Create Razorpay Order
 export const createOrder = createAsyncThunk(
   "payment/createOrder",

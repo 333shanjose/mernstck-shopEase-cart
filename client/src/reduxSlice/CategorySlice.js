@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+const API=process.env.REACT_APP_API_URL
 
 // Fetch categories
 export const getCategories = createAsyncThunk(
@@ -7,7 +8,7 @@ export const getCategories = createAsyncThunk(
   async () => {
     const token = localStorage.getItem("token");
     console.log(token)
-    const res = await axios.get("http://localhost:5000/admin/categories",
+    const res = await axios.get(`${API}/admin/categories`,
     {
       headers:{
         Authorization:`Bearer ${token}`

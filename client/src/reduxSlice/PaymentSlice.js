@@ -9,7 +9,7 @@ export const createOrder = createAsyncThunk(
         const token = localStorage.getItem("token");
         console.log(token)
       const response = await axios.post(
-        "http://localhost:5000/payment/create-order",
+        `${API}/payment/create-order`,
         { amount },
         {
             headers:{
@@ -37,7 +37,7 @@ export const verifyPayment = createAsyncThunk(
       const token = localStorage.getItem("token");
        
       const response = await axios.post(
-        "http://localhost:5000/payment/verify",
+        `${API}/payment/verify`,
         paymentData,
         {
           headers: {

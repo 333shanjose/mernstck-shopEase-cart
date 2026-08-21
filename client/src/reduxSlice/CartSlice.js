@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+const API=process.env.REACT_APP_API_URL
 
 // Fetch cart
 export const fetchCart = createAsyncThunk(
@@ -7,7 +8,7 @@ export const fetchCart = createAsyncThunk(
   async () => {
     const token = localStorage.getItem("token");
     console.log(token)
-    const res = await axios.get("http://localhost:5000/cart",
+    const res = await axios.get(`${API}/cart`,
     {
       headers:{
         Authorization:`Bearer ${token}`
@@ -26,7 +27,7 @@ export const addCart = createAsyncThunk(
     const token = localStorage.getItem("token");
        console.log('add cart think called')
     const res = await axios.post(
-      "http://localhost:5000/add-cart",
+      `${API}/add-cart`,
           { productId },
         {
          headers:{
@@ -46,7 +47,7 @@ export const addCart = createAsyncThunk(
     console.log(productId, action);
     const token=localStorage.getItem('token')
     const res=await axios.put(
-      'http://localhost:5000/cart/update-cart',
+      `${API}/cart/update-cart`,
           { productId,action },
         {
          headers:{
@@ -65,7 +66,7 @@ export const addCart = createAsyncThunk(
      'cart/remove-cart',
     async (productId)=>{
       const token=localStorage.getItem('token')
-      const res=await axios.delete(`http://localhost:5000/cart/remove-cart/${productId}`,
+      const res=await axios.delete(`${API}/cart/remove-cart/${productId}`,
           
         {
           headers:{

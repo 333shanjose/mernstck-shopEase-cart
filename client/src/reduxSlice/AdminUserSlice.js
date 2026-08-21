@@ -1,8 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API = "http://localhost:5000";
-
+const API = process.env.REACT_APP_API_URL;
 
 // ===============================
 // GET ALL USERS

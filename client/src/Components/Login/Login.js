@@ -8,6 +8,7 @@ import "./Login.css";
 
 function Login() {
   const API = process.env.REACT_APP_API_URL;
+  console.log("API URL:", API);
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [loading,setLoading]=useState(false)

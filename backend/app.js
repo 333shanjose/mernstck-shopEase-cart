@@ -54,13 +54,13 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage })
-
+app.use(cors({
+  origin: 'https://mernstck-shopease-cart-client.onrender.com',
+  credentials: true,
+}));
 
 app.use(express.json());
-app.use(cors({
-    origin: 'https://mernstck-shopease-cart-client.onrender.com',
-    credentials: true,
-}));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/uploads", express.static("uploads"));
 app.get("/", (req, resp) => {

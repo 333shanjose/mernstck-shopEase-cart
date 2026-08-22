@@ -180,7 +180,7 @@ function AdminOrders() {
                   {/* Products */}
 
                   <td>
-                    {order.items?.map(
+                    {order.orderItems?.map(
                       (item, index) => (
 
                         <div
